@@ -1,6 +1,8 @@
 let num1;
 let num2;
 let operator;
+let numCount = 0;
+let numLimit = 15;
 
 function add(num1,num2){
         return num1+num2;}
@@ -27,15 +29,26 @@ function operate(num1,operator,num2){
 
 const btn = document.querySelectorAll("button");
 let buttonValue;
+var reg = /^-?\d+\.?\d*$/;
 btn.forEach(function(btns) {
     btns.addEventListener("click", () => {
     buttonValue = btns.innerText;
       console.log(buttonValue);
-        
-
-            if(buttonValue ==='2'){
-                console.log("asdasd")
-            }
+   
+      if(reg.test(buttonValue)){
+        if(numCount<=numLimit){
+       const display = document.querySelector(".display");
+        const newNum = document.createElement("span");
+        newNum.textContent = buttonValue;
+        numCount++;
+        display.appendChild(newNum);}
+        else
+        {console.log("overload");}
+     }
+     
+   
+           
     });
     
 });
+
