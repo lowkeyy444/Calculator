@@ -30,25 +30,41 @@ function operate(num1,operator,num2){
 const btn = document.querySelectorAll("button");
 let buttonValue;
 var reg = /^-?\d+\.?\d*$/;
+
 btn.forEach(function(btns) {
     btns.addEventListener("click", () => {
     buttonValue = btns.innerText;
-      console.log(buttonValue);
+    //   console.log(buttonValue);
    
       if(reg.test(buttonValue)){
         if(numCount<=numLimit){
        const display = document.querySelector(".display");
         const newNum = document.createElement("span");
         newNum.textContent = buttonValue;
-        numCount++;
-        display.appendChild(newNum);}
-        else
-        {console.log("overload");}
-     }
-     
-   
-           
+       display.appendChild(newNum);
+       numCount++; 
+        }
+     if (buttonValue === '+') {
+        operator = "+";
+        num1 = newNum.value;
+        console.log(num1);
+    } else if (buttonValue === '-') {
+        operator = "-";
+        num1 = newNum.value;
+        console.log(num1);
+    } else if (buttonValue === '×') {
+        operator = "×";
+        num1 = newNum.value;
+        console.log(num1);
+    } else if (buttonValue === '÷') {
+        operator = "÷";
+        num1 = newNum.value;
+        console.log(num1);
+    }
+
+}   
     });
     
 });
 
+operate(num1,operator,num2);
