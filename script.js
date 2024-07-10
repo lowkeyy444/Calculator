@@ -25,5 +25,17 @@ function operate(num1,operator,num2){
     else if(operator=='/'){return divide(num1,num2);}
 }
 
+const btn = document.querySelectorAll("button");
+let buttonValue;
+btn.forEach(function(btns) {
+    btns.addEventListener("click", () => {
+    buttonValue = btns.innerText;
+      console.log(buttonValue);
+        
 
-console.log(operate(1,'+',44));
+            if(buttonValue ==='2'){
+                console.log("asdasd")
+            }
+    });
+    
+});
