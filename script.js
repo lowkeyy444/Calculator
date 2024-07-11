@@ -32,7 +32,7 @@ function operate(num1,operator,num2){
 
 const btn = document.querySelectorAll("button");
 let buttonValue;
-var reg = /^-?\d+\.?\d*$/;
+var reg = /^\d$/;
 
 btn.forEach(function(btns) {
     btns.addEventListener("click", () => {
@@ -48,9 +48,9 @@ btn.forEach(function(btns) {
             numCount++; 
 
        if(first === false ){
-        num1 = num1 +buttonValue;
+        num1 += buttonValue;
        }else{
-        num2 = num2+buttonValue;
+        num2 += buttonValue; 
 
        }
 
@@ -60,6 +60,21 @@ btn.forEach(function(btns) {
     subDisplay.innerHTML += num2
 }
 
+else if(buttonValue === '.'){
+    if(!num1.includes(".") && !first){
+        num1 += '.';
+    const display = document.querySelector(".main_display");
+    const newNum = document.createElement("span");
+    newNum.textContent = buttonValue;
+    display.appendChild(newNum);
+}else if (!num2.includes('.') && first) {
+    num2 += '.';
+    const display = document.querySelector(".main_display");
+    const newNum = document.createElement("span");
+    newNum.textContent = buttonValue;
+    display.appendChild(newNum);
+}
+}
 
      else if(buttonValue === '+' || buttonValue === '-' || buttonValue === '×' || buttonValue === '÷') {
         if (first === false) {
@@ -83,7 +98,7 @@ btn.forEach(function(btns) {
             const result = operate(num1,operator,num2);
             const display = document.querySelector(".main_display");
             display.textContent = result;
-            num1 = result;
+            num1 = result.toString();
             num2 = '';
             operator=null;
             first=false;
