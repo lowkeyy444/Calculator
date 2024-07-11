@@ -41,7 +41,7 @@ btn.forEach(function(btns) {
    
       if(reg.test(buttonValue)){
         if(numCount<=numLimit){
-            const display = document.querySelector(".display");
+            const display = document.querySelector(".main_display");
             const newNum = document.createElement("span");
             newNum.textContent = buttonValue;
             display.appendChild(newNum);
@@ -51,8 +51,13 @@ btn.forEach(function(btns) {
         num1 = num1 +buttonValue;
        }else{
         num2 = num2+buttonValue;
+
        }
+
     }
+
+    const subDisplay = document.querySelector(".sub_display")
+    subDisplay.innerHTML += num2
 }
 
 
@@ -61,26 +66,57 @@ btn.forEach(function(btns) {
             first = true;
             operator = buttonValue;
             console.log(operator);
+            const display=document.querySelector(".main_display");
+            display.textContent="";
+
+            const subDisplay = document.querySelector(".sub_display")
+            let subtext = num1 + operator;
+            subDisplay.textContent = subtext;
+
+
+
         }
 
 }
     else if(buttonValue === '='){
         if(num1 && operator&&num2){
             const result = operate(num1,operator,num2);
-            const display = document.querySelector(".display");
+            const display = document.querySelector(".main_display");
             display.textContent = result;
             num1 = result;
             num2 = '';
             operator=null;
             first=false;
             numCount=0;
+          
 
         }
-    
-}
+    }
 
+    else if(buttonValue === 'AC'){
+        const display = document.querySelector(".main_display");
+        num1 = '';
+        num2 = '';
+        operator= null;
+        display.textContent='';
+        first=false
+        numCount=0;
+
+        const subDisplay = document.querySelector(".sub_display");
+        subDisplay.textContent='';
+        }
+
+        else if (buttonValue === 'C'){
+            const display = document.querySelector(".main_display")
+            display.removeChild(display.lastElementChild);
+            
+        }
+
+    
     });
     
 });
 
 // operate(num1,operator,num2);
+// const subDisplay = document.querySelector(".sub_display");
+// subDisplay.innerHTML=subvalue+"hello";

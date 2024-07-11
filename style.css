@@ -21,12 +21,14 @@ body{
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    justify-content:flex-end;
-    align-items: center;
     font-size: 40px; 
     padding-right: 5px;
     
+}
+
+.main_display{
+    display: flex;
+    justify-content: flex-end;
 }
 
 .button{
@@ -47,4 +49,11 @@ body{
     height: 60px;
     margin: 10px;
     border-radius: 10px;
+}
+
+.sub_display {
+ font-size: 20px;
+ display: flex;
+ justify-content: flex-end;
+
 }
