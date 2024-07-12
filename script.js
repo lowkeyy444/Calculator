@@ -134,7 +134,7 @@ else if(buttonValue === '.'){
         subDisplay.textContent='';
         subtext = '';
         latestText = '';
-        first=false
+        first=false;
         numCount=0;
         
         }
@@ -159,13 +159,30 @@ else if(buttonValue === '.'){
             }
         }
 
-        // else if (buttonValue === 'C'){
-        //     const display = document.querySelector(".main_display")
-        //     display.removeChild(display.lastElementChild);
-            
-        // }
-
+        else if (buttonValue === 'C'){
+            const display = document.querySelector(".main_display")
+            const subDisplay = document.querySelector(".sub_display")
+            display.textContent = display.textContent.slice(0,-1)
+            subDisplay.textContent = subDisplay.textContent.slice(0,-1)
+           
+            if(!first){
+                num1 = num1.slice(0, -1);
+                    if(num1 ===""){
+                        num1 ="";
+                        console.log("fuck you first")
+                    }
+                   
+        }
+        else{
+                num2 =num2.slice(0,-1);
+                if(num2 ===""){
+                    num2 ="";
+                }
     
+            
+
+    }
+}
     });
     
 });
