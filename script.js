@@ -110,7 +110,11 @@ else if(buttonValue === '.'){
 
 }
     else if(buttonValue === '='){
-        if(num1 && operator&&num2){
+        if(operator ==="÷" && num2 ==="0"){
+            const display = document.querySelector(".main_display");
+            display.textContent="Bruh!";
+          }
+       else if(num1 && operator&&num2){
             let result = operate(num1,operator,num2);
             const display = document.querySelector(".main_display");
             if(result.toString().length >10){
@@ -129,7 +133,6 @@ else if(buttonValue === '.'){
             numCount=0;
             resultOn=true;
             
-          
 
         }
     }
