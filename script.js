@@ -8,6 +8,8 @@ let subtext;
 let latestText;
 let num_percen;
 let result_percen;
+let result;
+let resultOn = false;
 
 function add(num1,num2){
         return num1+num2;}
@@ -26,8 +28,6 @@ function percentage(num_percen){
     return num_percen/100;
 
 }
-    
-    
     
 
 function operate(num1,operator,num2){
@@ -99,10 +99,10 @@ else if(buttonValue === '.'){
             console.log(operator);
             const display=document.querySelector(".main_display");
             display.textContent="";
-
             const subDisplay = document.querySelector(".sub_display")
             subtext = num1 + operator;
             subDisplay.textContent = subtext;
+            numCount=0;
 
 
 
@@ -111,14 +111,24 @@ else if(buttonValue === '.'){
 }
     else if(buttonValue === '='){
         if(num1 && operator&&num2){
-            const result = operate(num1,operator,num2);
+            let result = operate(num1,operator,num2);
             const display = document.querySelector(".main_display");
-            display.textContent = result.toFixed(2);
+            if(result.toString().length >10){
+            result =result.toExponential(2);
+            display.textContent = result;
+            }
+            else{
+                result = result.toFixed(2);
+                display.textContent = result;
+                
+            }
             num1 = result.toString();
             num2 = '';
             operator=null;
             first=false;
             numCount=0;
+            resultOn=true;
+            
           
 
         }
@@ -159,11 +169,12 @@ else if(buttonValue === '.'){
             }
         }
 
-        else if (buttonValue === 'C'){
-            const display = document.querySelector(".main_display")
-            const subDisplay = document.querySelector(".sub_display")
-            display.textContent = display.textContent.slice(0,-1)
+        else if (buttonValue === 'C' && !resultOn){
+            const display = document.querySelector(".main_display");
+            display.textContent = display.textContent.slice(0,-1);
+            const subDisplay = document.querySelector(".sub_display");
             subDisplay.textContent = subDisplay.textContent.slice(0,-1)
+           
            
             if(!first){
                 num1 = num1.slice(0, -1);
@@ -177,6 +188,7 @@ else if(buttonValue === '.'){
                 num2 =num2.slice(0,-1);
                 if(num2 ===""){
                     num2 ="";
+                    console.log("fuck you");
                 }
     
             
