@@ -4,6 +4,10 @@ let operator;
 let numCount = 0;
 let numLimit = 15;
 let first = false;
+let subtext;
+let latestText;
+let num_percen;
+let result_percen;
 
 function add(num1,num2){
         return num1+num2;}
@@ -17,6 +21,11 @@ function multiply(num1,num2){
       
 function divide(num1,num2){
         return num1/num2;}
+
+function percentage(num_percen){
+    return num_percen/100;
+
+}
     
     
     
@@ -57,8 +66,14 @@ btn.forEach(function(btns) {
     }
 
     const subDisplay = document.querySelector(".sub_display")
-    subDisplay.innerHTML += num2
-}
+    if(subtext){
+         latestText = subtext + num2;
+    }
+
+    subDisplay.textContent = latestText;
+
+    }
+
 
 else if(buttonValue === '.'){
     if(!num1.includes(".") && !first){
@@ -74,6 +89,7 @@ else if(buttonValue === '.'){
     newNum.textContent = buttonValue;
     display.appendChild(newNum);
 }
+
 }
 
      else if(buttonValue === '+' || buttonValue === '-' || buttonValue === '×' || buttonValue === '÷') {
@@ -85,7 +101,7 @@ else if(buttonValue === '.'){
             display.textContent="";
 
             const subDisplay = document.querySelector(".sub_display")
-            let subtext = num1 + operator;
+            subtext = num1 + operator;
             subDisplay.textContent = subtext;
 
 
@@ -97,7 +113,7 @@ else if(buttonValue === '.'){
         if(num1 && operator&&num2){
             const result = operate(num1,operator,num2);
             const display = document.querySelector(".main_display");
-            display.textContent = result;
+            display.textContent = result.toFixed(2);
             num1 = result.toString();
             num2 = '';
             operator=null;
@@ -110,22 +126,44 @@ else if(buttonValue === '.'){
 
     else if(buttonValue === 'AC'){
         const display = document.querySelector(".main_display");
+        const subDisplay = document.querySelector(".sub_display");
         num1 = '';
         num2 = '';
         operator= null;
         display.textContent='';
+        subDisplay.textContent='';
+        subtext = '';
+        latestText = '';
         first=false
         numCount=0;
-
-        const subDisplay = document.querySelector(".sub_display");
-        subDisplay.textContent='';
+        
         }
 
-        else if (buttonValue === 'C'){
-            const display = document.querySelector(".main_display")
-            display.removeChild(display.lastElementChild);
+        else if(buttonValue === '%'){
+            if(!first){
+                result_percen = percentage(num1);
+                const display = document.querySelector(".main_display");
+                display.textContent = result_percen;
+                num1=result_percen;
+                num2="";
+               
+            }
+            else{
+                result_percen = percentage(num2)
+                const display = document.querySelector(".main_display");
+                display.textContent = result_percen;
+                num1=result_percen;
+                num2="";
+    
+                
+            }
+        }
+
+        // else if (buttonValue === 'C'){
+        //     const display = document.querySelector(".main_display")
+        //     display.removeChild(display.lastElementChild);
             
-        }
+        // }
 
     
     });
