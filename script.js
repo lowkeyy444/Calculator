@@ -2,7 +2,7 @@ let num1 ='';
 let num2 ='';
 let operator;
 let numCount = 0;
-let numLimit = 15;
+let numLimit = 13;
 let first = false;
 let subtext;
 let latestText;
@@ -103,6 +103,9 @@ else if(buttonValue === '.'){
             subtext = num1 + operator;
             subDisplay.textContent = subtext;
             numCount=0;
+            resultOn =false;
+           
+            
 
 
 

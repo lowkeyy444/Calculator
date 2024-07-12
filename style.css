@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
 body{
     display: flex;
     justify-content: center;
@@ -11,9 +12,11 @@ body{
     height:600px;
     width:370px;
     /* border: 1px solid black; */
-    border-radius: 30px;
+    border-radius: 40px;
     background-color: #303030;
-   
+    font-family: "Arimo", sans-serif;
+    
+
 }
 
 .display{
@@ -22,13 +25,14 @@ body{
     height:80px;
     width: 340px;
     margin-top: 20px;
-    padding-bottom: 40px;
+    padding-bottom: 35px;
     padding-top: 20px;
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
     font-size: 40px; 
-    padding-right: 5px;
+    border-bottom:3px solid #11e299;
+    
     
 }
 
@@ -36,6 +40,9 @@ body{
     display: flex;
     justify-content: flex-end;
     color: white;
+    font-weight:700;
+    
+   
 }
 
 .button{
@@ -44,9 +51,9 @@ body{
     height: 75px;
     margin: 5px;
     border-radius: 50%;
-    background-color:#545955;
-    color:white;
-    font-size: 20px;
+    background-color:#3a3a3a;
+    color:#ffffff;
+    font-size: 25px;
     
 }
 .button_container{
@@ -56,17 +63,40 @@ body{
     align-items: center;
 }
 
-.equal_button{
-    width: 156px;
-    height: 60px;
-    margin: 10px;
-    border-radius: 10px;
-}
 
 .sub_display {
  font-size: 20px;
  display: flex;
  justify-content: flex-end;
  color: #11e299;
+ padding-bottom: 20px;
 
 }
+
+
+
+.ac{
+    color: #11e299;
+}
+         
+          
+.equal_button {
+    width: 156px;
+    height: 75px;
+    margin: 10px;
+    border-radius: 30px;
+    font-weight: 700;
+
+    background-image: linear-gradient(to right, #1D976C 0%, #93F9B9  51%, #1D976C  100%);
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+  }
+
+  .equal_button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+ 
