@@ -11,6 +11,8 @@ let result_percen;
 let result;
 let resultOn = false;
 
+
+
 function add(num1,num2){
         return num1+num2;}
     
@@ -200,7 +202,9 @@ else if(buttonValue === '.'){
             
 
     }
+    
 }
+    
     });
     
 });
